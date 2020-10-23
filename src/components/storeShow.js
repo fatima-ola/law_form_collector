@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Form from './form';
 
 class StoreShow extends Component {
     state = {
@@ -26,14 +27,15 @@ class StoreShow extends Component {
     render() {
         return (
             <div>
+                <Form />
                 <table>
                     <thead>
-                        <th>
+                        <tr>
                             <td>Name</td>
                             <td>Age</td>
                             <td>Essay</td>
                             <td>Stack</td>
-                        </th>
+                        </tr>
                     </thead>
                     <tbody>
                         {this.output()}

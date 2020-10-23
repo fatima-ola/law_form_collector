@@ -5,7 +5,7 @@ class Form extends Component {
         name: '',
         age: null,
         essay: '',
-        stack: ''
+        stack: 'React'
     }
 
     handleChange = (e) => {
@@ -27,22 +27,23 @@ class Form extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Name</label>
-                        <input type="text" name="name" onChange={this.handleChange} />
+                        <input type="text" name="name" onChange={this.handleChange} required={true} />
                     </div>
                     <div>
                         <label htmlFor="age">Age</label>
-                        <input type="number" name="age" onChange={this.handleChange} />
+                        <input type="number" name="age" onChange={this.handleChange} required={true} />
                     </div>
                     <div>
-                        <textarea placeholder="tell us about yourself" onChange={this.handleChange} />
+                        <textarea placeholder="tell us about yourself" onChange={this.handleChange} required={true} />
                     </div>
                     <div>
-                        <select onChange={this.handleChange}>
+                        <select value={this.state.stack} onChange={this.handleChange} required={true}>
                             <option value="Python">Python</option>
                             <option value="React">React</option>
-                            <option value="Anguilar">Anguilar</option>
+                            <option value="Angular">Anguilar</option>
                         </select>
                     </div>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         )
