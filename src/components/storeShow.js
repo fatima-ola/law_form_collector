@@ -17,6 +17,7 @@ class StoreShow extends Component {
                     <td>{programmer.age}</td>
                     <td>{programmer.essay}</td>
                     <td>{programmer.stack}</td>
+                    <td><button onClick={() => this.deleteProgrammer(programmer.id)}>Delete Programmer</button></td>
                 </tr>
             )
         })
@@ -29,6 +30,15 @@ class StoreShow extends Component {
         let newProgrammerList = [...this.state.programmers, programmer]
         this.setState({
             programmers: newProgrammerList,
+        })
+    }
+
+    deleteProgrammer = (id) => {
+        const remainingProgrammer = this.state.programmers.filter((programmer) => {
+            return programmer.id !== id
+        })
+        this.setState({
+            programmers: remainingProgrammer
         })
     }
 
