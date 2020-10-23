@@ -17,6 +17,7 @@ class Form extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         console.log(this.state)
+        this.props.addProgrammer(this.state)
     }
 
 
@@ -34,13 +35,13 @@ class Form extends Component {
                         <input type="number" name="age" onChange={this.handleChange} required={true} />
                     </div>
                     <div>
-                        <textarea placeholder="tell us about yourself" onChange={this.handleChange} required={true} />
+                        <textarea name="essay" placeholder="tell us about yourself" onChange={this.handleChange} required={true} />
                     </div>
                     <div>
-                        <select value={this.state.stack} onChange={this.handleChange} required={true}>
+                        <select type="select" name="stack" value={this.state.stack} onChange={this.handleChange} required={true}>
                             <option value="Python">Python</option>
                             <option value="React">React</option>
-                            <option value="Angular">Anguilar</option>
+                            <option value="Angular">Angular</option>
                         </select>
                     </div>
                     <button type="submit">Submit</button>

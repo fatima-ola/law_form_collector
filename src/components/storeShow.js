@@ -24,17 +24,25 @@ class StoreShow extends Component {
         return x
     }
 
+    addProgrammer = (programmer) => {
+        programmer.id = Math.floor(Math.random() * 100)
+        let newProgrammerList = [...this.state.programmers, programmer]
+        this.setState({
+            programmers: newProgrammerList,
+        })
+    }
+
     render() {
         return (
             <div>
-                <Form />
+                <Form addProgrammer={this.addProgrammer} />
                 <table>
                     <thead>
                         <tr>
-                            <td>Name</td>
-                            <td>Age</td>
-                            <td>Essay</td>
-                            <td>Stack</td>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Essay</th>
+                            <th>Stack</th>
                         </tr>
                     </thead>
                     <tbody>
