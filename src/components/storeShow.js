@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 import UserForm from './userform';
-import { Collapse, Table, Row, Col, Container, Button, Card, CardText } from 'reactstrap'
+import { Table, Row, Container, Button } from 'reactstrap'
 import Output from './output'
 import SmallScreen from './smallScreen'
-
-const smallbtn = {
-    backgroundColor: 'red',
-    width: '200px'
-}
 
 class StoreShow extends Component {
     state = {
@@ -42,30 +37,6 @@ class StoreShow extends Component {
         })
     }
 
-    // smallScreen = () => {
-    //     const data = this.state.programmers.map((programmer) => {
-    //         return (
-    //             <Col key={programmer.id} xs="12" sm='12' md='12'>
-    //                 <Collapse isOpen={this.state.isOpen}>
-    //                     <Card body>
-    //                         <CardText>
-    //                             id: {programmer.id} <br />
-    //                             Name: {programmer.name} <br />
-    //                            Age: {programmer.age} <br />
-    //                            Stack: {programmer.stack} <br />
-    //                            Essay: {programmer.essay} <br />
-    //                         </CardText>
-    //                         <Button color="danger" onClick={() => this.deleteProgrammer(programmer.id)} style={smallbtn}>Delete Programmer</Button>
-    //                     </Card>
-    //                 </Collapse>
-    //             </Col>
-    //         )
-
-    //     })
-    //     return data
-    // }
-
-
 
     render() {
         return (
@@ -88,7 +59,7 @@ class StoreShow extends Component {
                     </Row>
                     <div >
                         <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Tap to see programmer's details</Button>
-                        <SmallScreen programmer={this.state.programmers} toggle={this.state.toggle} deleteProgrammer={this.deleteProgrammer} isOpen={this.isOpen} />
+                        <SmallScreen programmer={this.state.programmers} toggle={this.state.toggle} deleteProgrammer={this.deleteProgrammer} />
                     </div>
                 </Container>
             </div>
