@@ -1,24 +1,22 @@
 import React, { Component } from 'react'
 import UserForm from './userform';
-import { Table, Row, Container, Button } from 'reactstrap'
+import { Table, Row, Container, FormGroup, Label, Input } from 'reactstrap'
 import Output from './output'
 import SmallScreen from './smallScreen'
 
 class StoreShow extends Component {
     state = {
-        programmers: [
-            { name: 'Sam', age: 25, essay: 'I am a developer', stack: 'react', id: 99 },
-            { name: 'Brad', age: 23, essay: 'I love jsx', stack: 'php', id: 70 }
-        ],
-        isOpen: false
+        programmers: [],
+        stack: 'React'
     }
 
     addProgrammer = (programmer) => {
-        programmer.id = Math.floor(Math.random() * 100)
+        programmer.id = Math.floor(Math.random() * 101)
         let newProgrammerList = [...this.state.programmers, programmer]
         this.setState({
             programmers: newProgrammerList,
         })
+        console.log(newProgrammerList)
     }
 
     deleteProgrammer = (id) => {
@@ -29,14 +27,6 @@ class StoreShow extends Component {
             programmers: remainingProgrammer
         })
     }
-
-    toggle = () => {
-        this.setState({
-            ...this.state,
-            isOpen: !this.state.isOpen
-        })
-    }
-
 
     render() {
         return (
@@ -57,9 +47,18 @@ class StoreShow extends Component {
                             <Output programmers={this.state.programmers} deleteProgrammer={this.deleteProgrammer} />
                         </Table>
                     </Row>
-                    <div >
-                        <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Tap to see programmer's details</Button>
-                        <SmallScreen programmer={this.state.programmers} toggle={this.state.toggle} deleteProgrammer={this.deleteProgrammer} />
+                    <Row>
+                        <FormGroup>
+                            <Label for="exampleSelect">Select</Label>
+                            <Input type="select" name="stack" value={this.state.stack} onChange={this.handleChange} required={true} >
+                                <option value="Python">Python</option>
+                                <option value="React">React</option>
+                                <option value="Angular">Angular</option>
+                            </Input>
+                        </FormGroup>
+                    </Row>
+                    <div className='row small'>
+                        <SmallScreen programmers={this.state.programmers} deleteProgrammer={this.deleteProgrammer} />
                     </div>
                 </Container>
             </div>

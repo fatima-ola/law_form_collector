@@ -7,7 +7,7 @@ const smallbtn = {
     width: '200px'
 }
 
-function SmallScreen(programmers, deleteProgrammer) {
+function SmallScreen({ programmers, deleteProgrammer }) {
 
     const initState = {
         isOpen: true
